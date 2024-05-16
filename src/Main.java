@@ -7,9 +7,13 @@
     public class Main {
         public static void main(String[] args) throws IOException {
             File file = new File("Text.txt");
+            FileWriter fileWriter = new FileWriter(file);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
-
+            Random random = new Random();
 
             int[] array = new int[100];
             int i = 0;
@@ -20,32 +24,22 @@
                 }
                 int number = Integer.parseInt(line);
                 array[i] = number;
-                i++;
+                i++;}
+            for (int j = 0; j < 100; j++) {
+                array[i] = random.nextInt(0, 100);
+                System.out.println(array[i]);
+                String a = String.valueOf(array[i]);
 
-                bufferedReader.readLine();
-                System.out.println(line);
-
-                FileWriter fileWriter = new FileWriter(file);
-                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-                Random random = new Random();
-
-                for (int i = 0; i < 100; i++) {
-                    array[i] = random.nextInt(0, 100);
-                    System.out.println(array[i]);
-                    String a = String.valueOf(array[i]);
+                bufferedWriter.write(a);
+                bufferedWriter.newLine();
+                bufferedWriter.flush();
 
 
-                    bufferedWriter.write(a);
-                    bufferedWriter.newLine();
-                    bufferedWriter.flush();
 
-
-                    bufferedReader.close();
-                    bufferedWriter.close();
                 }
 
 
-            }}}
+            }}
 
 
 
