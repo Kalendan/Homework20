@@ -1,4 +1,4 @@
-public  class Massivmethods {
+public class Massivmethods {
 
     private int[] array;
 
